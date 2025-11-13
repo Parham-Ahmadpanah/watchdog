@@ -2,166 +2,257 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Anti‑Theft Guardian v2.0 — Protect your laptop against unplugging, shutdown, and theft. Simple one‑time purchase activation." />
-  <title>Anti‑Theft Guardian v2.0 — Official Purchase</title>
-
+  <title>Anti‑Theft Guardian v2.0</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Secure your laptop with Anti‑Theft Guardian v2.0. Buy a license in one click!">
   <style>
     body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f8fafc;
-      color: #111;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
+      margin: 0; font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f7faff; color: #111;
     }
-
-    header {
-      background: linear-gradient(135deg, #0078d7, #00aaff);
-      color: #fff;
-      text-align: center;
-      padding: 2.5rem 1rem;
+    .container {
+      max-width: 450px; margin: 3rem auto 0; background: #fff;
+      border-radius: 10px; box-shadow: 0 6px 30px #2222  ;
+      padding: 2.2rem 2.5rem;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-      letter-spacing: 0.5px;
+    h1, h2 { text-align:center; margin:0 0 1.5rem }
+    .btn {
+        display: inline-block;
+        background: #0078d7; color: #fff; border: 0; border-radius: 4px;
+        font: bold 1rem 'Segoe UI',Arial,sans-serif; padding: 0.8rem 2.2rem;
+        margin: 2rem auto 1rem;   cursor:pointer; box-shadow: 0 2px 8px #0078d733;
+        transition: background 0.12s;
     }
-
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1rem;
-      opacity: 0.9;
+    .btn:hover { background: #005ea5; }
+    .hidden { display:none!important; }
+    .field { margin-bottom: 1.5rem;}
+    label { display:block; font-weight:500; margin-bottom: 0.4em;}
+    input[type="email"], input[type="text"] {
+      width: 100%; padding: 0.7em; font-size:1rem; border: 1px solid #ccc; border-radius:4px;
     }
-
-    main {
-      max-width: 900px;
-      margin: 2.5rem auto;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 2rem;
-    }
-    main h2 {
-      color: #0078d7;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-
-    .feature {
-      border: 1px solid #eee;
-      border-radius: 8px;
-      padding: 1rem;
-    }
-
-    #paypal-button-container {
-      margin-top: 2rem;
-    }
-
+    .msg { font-size: 1rem; color: #06a900; margin: 1rem 0;}
+    .err { color:#db003f;}
+    #paypal-button-container { margin-top:2rem; }
+    #logout { float: right; background: #eee; color:#333; margin-top:-1.4rem; margin-bottom:0.5rem; }
+    .feature-list { padding:0; list-style:none;}
+    .feature-list li:before { content:'✓ '; color:#0078d7; }
+    .feature-list li { margin-bottom:0.7rem; }
+    .purchase-state { font-size:1.1rem; padding:1em 0.5em; }
+    .activation-group { margin:1.3rem 0 0.5rem }
+    .copy-btn { margin-left:0.6em; font-size:1rem; }
     footer {
-      text-align: center;
-      padding: 2rem 0;
-      font-size: 0.9rem;
-      color: #555;
+      text-align: center; margin:2.5rem 0 0; font-size:.9rem; color:#888;
     }
-    footer a { color: #0078d7; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-
-    @media (max-width:600px) {
-      header h1 { font-size: 1.5rem; }
+    @media(max-width: 600px) {
+      .container { padding: 1.3rem 0.7rem;}
     }
   </style>
+  <!-- PayPal Smart Buttons -->
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
 </head>
-
 <body>
-  <header>
-    <h1>Anti‑Theft Guardian v2.0</h1>
-    <p>Secure your laptop. Activate once — lifetime protection.</p>
-  </header>
+  <div class="container">
+    <!-- PAGE 1: LANDING -->
+    <section id="sec-landing">
+      <h1>Anti‑Theft Guardian <span style="font-size:1.1em">v2.0</span></h1>
+      <h2>Protect your laptop everywhere.</h2>
+      <ul class="feature-list">
+        <li>Alarms instantly if unplugged while protected</li>
+        <li>Shuts down forced power-off attempts</li>
+        <li>One-device lifetime license, secure activation</li>
+        <li>Works on Windows 10/11</li>
+      </ul>
+      <button class="btn" onclick="goToLogin()">Get Started</button>
+    </section>
 
-  <main>
-    <h2>Why you’ll love Anti‑Theft Guardian</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>Smart Power Monitoring</h3>
-        <p>Instant alarm if your charger is unplugged while you’re away.</p>
+    <!-- PAGE 2: LOGIN -->
+    <section id="sec-login" class="hidden">
+      <h2>Sign In to Purchase</h2>
+      <form id="login-form" onsubmit="event.preventDefault();onLogin()">
+        <div class="field">
+          <label for="email">Email address for activation</label>
+          <input id="email" type="email" placeholder="you@email.com" required autocomplete="email" />
+        </div>
+        <button class="btn" type="submit">Continue</button>
+        <p style="font-size:.95em;color:#888;margin-top:1em;">We never share your email. Activation code is sent here.</p>
+      </form>
+    </section>
+
+    <!-- PAGE 3: USER PANEL -->
+    <section id="sec-panel" class="hidden">
+      <button id="logout" onclick="doLogout()" title="Sign out">⎋ Logout</button>
+      <h2>Welcome, <span id="user-email"></span></h2>
+      <div id="purchase-view">
+        <div id="purchase-status" class="purchase-state"></div>
+        <!-- PayPal & Activation views will be inserted here -->
       </div>
-      <div class="feature">
-        <h3>Shutdown Protection</h3>
-        <p>Blocks forced shutdowns when protection is active.</p>
-      </div>
-      <div class="feature">
-        <h3>Unique Device Fingerprint</h3>
-        <p>Each license is securely tied to your device hardware ID.</p>
-      </div>
-    </div>
+    </section>
+  </div>
 
-    <h2>Purchase Activation</h2>
-    <p>One‑time payment unlocks full functionality.  
-       After successful payment, your unique activation code will be sent to your registered email.</p>
+  <footer>
+    © 2025 Parham Panah &bull; <a href="https://parhampanah.com">Main Site</a> &bull;
+    Support: <a href="mailto:support@parhampanah.com">support@parhampanah.com</a>
+  </footer>
 
-    <!-- ✅ Replace with your own PayPal client ID -->
-    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
-    <div id="paypal-button-container"></div>
+  <!-- Core SPA Script -->
+  <script>
+    // ===== SPA Navigation/Helpers =====
+    const $ = s=>document.querySelector(s);
 
-    <script>
+    function show(sec) {
+      ["#sec-landing","#sec-login","#sec-panel"]
+        .forEach(id=>$(id).classList.add("hidden"));
+      $(sec).classList.remove("hidden");
+    }
+    function goToLogin() { show('#sec-login'); }
+    function goToPanel() { show('#sec-panel'); loadPanel(); }
+
+    // ===== Simple Auth State =====
+    function userEmail() {
+      return window.localStorage && localStorage.getItem('antitheft_email');
+    }
+    function setUser(e) {
+      window.localStorage && localStorage.setItem('antitheft_email',e);
+    }
+    function clearUser() {
+      window.localStorage && localStorage.removeItem('antitheft_email');
+    }
+
+    // On page load: state check
+    window.onload = function() {
+      let email = userEmail();
+      if (email) { goToPanel(); }
+      else { show("#sec-landing"); }
+    };
+
+    // ========== LOGIN FORM ==========
+    function onLogin() {
+      let email = $("#email").value.trim().toLowerCase();
+      if (!email) return;
+      setUser(email);
+      goToPanel();
+    }
+    function doLogout() {
+      clearUser();
+      location.reload();
+    }
+
+    // ========== PANEL LOGIC ==========
+    function loadPanel() {
+      let email = userEmail();
+      $("#user-email").innerText = email;
+      let statusDiv = $("#purchase-status");
+      statusDiv.innerHTML = `<span>Loading your license status…</span>`;
+
+      // Fetch license state from backend
+      fetch(`https://watchdog.parhampanah.com/verify/${encodeURIComponent(email)}`)
+        .then(r=>r.json())
+        .then(data=>{
+          if (data.status === 'licensed' && data.code) {
+            // Already purchased
+            statusDiv.innerHTML = `
+              <span class="msg">✅ License Activated!</span>
+              <div class="activation-group">
+                <b>Your Activation Code:</b><br>
+                <input id="codebox" value="${data.code}" readonly style="font-size:1em;width:80%;margin-top:0.3em;">
+                <button class="copy-btn" onclick="navigator.clipboard.writeText('${data.code}')">Copy</button>
+              </div>
+              <div style="margin-top:1em;color:#888;font-size:.95em;">
+                Use this activation code in the app on your device.<br>
+                <br>
+                Need help? <a href="mailto:support@parhampanah.com">Contact support</a>
+              </div>
+            `;
+          } else {
+            // Not purchased: show buy now and allow code input
+            statusDiv.innerHTML = `
+              <span class="err">⚠️ No license detected for this email.</span>
+              <div style="margin:1.5rem 0;text-align:center;">
+                <div id="paypal-button-container"></div>
+              </div>
+              <div class="activation-group">
+                <b>Already have an activation code?</b><br>
+                <input id="manual-code" type="text" placeholder="Paste your code here" style="width:70%;">
+                <button class="copy-btn" onclick="submitManualCode()">Activate</button>
+              </div>
+            `;
+            renderPayPalButton(email);
+          }
+        })
+        .catch(err=>{
+          statusDiv.innerHTML = `<span class="err">Could not connect to server.<br>Please try again later.</span>`;
+        });
+    }
+
+    // ========== PayPal Integration ==========
+    function renderPayPalButton(email) {
+      // Remove any previous buttons to avoid PayPal loader issues!
+      let c = document.getElementById("paypal-button-container");
+      c.innerHTML = '';
       paypal.Buttons({
-        style: {
-          shape: "pill",
-          color: "blue",
-          layout: "vertical",
-          label: "paypal"
-        },
+        style: { shape: "pill", color: "blue", label: "paypal" },
         createOrder: function(data, actions) {
           return actions.order.create({
             intent: 'CAPTURE',
             purchase_units: [{
-              description: "Anti‑Theft Guardian v2.0 License",
+              description: "Anti‑Theft Guardian 2.0 License",
               amount: { currency_code: "USD", value: "14.99" }
             }]
           });
         },
         onApprove: function(data, actions) {
           return actions.order.capture().then(function(details) {
-            // Notify backend about payment success
+            // Notify backend, send email/code
             fetch("https://watchdog.parhampanah.com/payment-success", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
+                email: email,
                 order_id: data.orderID,
                 payer_email: details.payer.email_address,
                 payer_name: details.payer.name.given_name
               })
             })
-            .then(() => {
-              alert("✅ Thank you, " + details.payer.name.given_name +
-                    "! Your purchase was successful. Check your email for the activation code.");
+            .then(x => x.json())
+            .then(res => {
+              alert("✅ Thank you! Your purchase was successful. Check your email for your activation code.");
+              loadPanel();
             })
             .catch(err => {
-              alert("Payment successful but failed to reach server. " +
-                    "Please contact support@parhampanah.com with your PayPal receipt.");
-              console.error(err);
+              alert("Payment succeeded, but there was a server error. Forward your PayPal receipt to support@parhampanah.com.");
             });
           });
         },
         onError: function (err) {
-          alert("❌ Payment could not be processed. Please try again later.");
-          console.error(err);
+          alert("❌ Payment failed. Please retry or contact support.");
         }
       }).render("#paypal-button-container");
-    </script>
-  </main>
+    }
 
-  <footer>
-    © 2025 Parham Panah · All Rights Reserved<br>
-    <a href="https://parhampanah.com">parhampanah.com</a> · 
-    <a href="mailto:support@parhampanah.com">support@parhampanah.com</a>
-  </footer>
+    // ========== MANUAL CODE ACTIVATION ==========
+    function submitManualCode() {
+      let code = $("#manual-code").value.trim();
+      let email = userEmail();
+      if (!code) { alert('Please paste your activation code.'); return;}
+      // Call backend to verify code for this email
+      fetch("https://watchdog.parhampanah.com/verify-code", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ email: email, code: code })
+      })
+      .then(r=>r.json())
+      .then(data=>{
+        if (data.ok) {
+          alert("✅ Activation complete! Your license is now active.");
+          loadPanel();
+        } else {
+          alert("Invalid code, please check and try again. If you continue to have issues, contact support.");
+        }
+      })
+      .catch(err=>{
+        alert("Error connecting to activation server.");
+      });
+    }
+  </script>
 </body>
 </html>
