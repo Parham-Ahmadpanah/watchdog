@@ -1,6 +1,6 @@
 {
-  "version": "1.0",
-  "enabled": false,
+  "version": "1.10",
+  "enabled": true,
   "download_url": "https://watchdog.parhampanah.com/download/watchdog-1.0.exe",
   "message": ""
 }
