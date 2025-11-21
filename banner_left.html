@@ -1,6 +1,44 @@
 <!DOCTYPE html>
 <html>
-<body style="margin:0;padding:0;background:transparent;">
+<head>
+<style>
+body { margin:0; padding:0; background:transparent; }
+</style>
+<script>
+// Override window.open to force external browser
+(function() {
+    var originalOpen = window.open;
+    window.open = function(url, target, features) {
+        console.log("Intercepted window.open:", url);
+        // Force external browser by returning null
+        if (url && url !== 'about:blank') {
+            // Use custom protocol or return null to force external
+            return null;
+        }
+        return originalOpen.call(this, url, target, features);
+    };
+})();
+</script>
+</head>
+<body>
+<!-- Your ad script -->
 <script>(function(s){s.dataset.zone='10183524',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+<!-- Force all links to have target="_blank" -->
+<script>
+document.addEventListener('click', function(e) {
+    var target = e.target;
+    // Find closest anchor tag
+    while (target && target.tagName !== 'A') {
+        target = target.parentElement;
+    }
+    if (target && target.tagName === 'A' && target.href) {
+        e.preventDefault();
+        console.log("Ad click detected:", target.href);
+        // Signal to PyQt to open in external browser
+        window.location = 'pyqt://open-external/' + encodeURIComponent(target.href);
+    }
+}, true);
+</script>
 </body>
 </html>
