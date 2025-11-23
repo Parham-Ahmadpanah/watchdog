@@ -1,6 +1,7 @@
 {
-  "version": "1.1",
-  "enabled": true,
-  "download_url": "https://watchdog.parhampanah.com/download/watchdog-1.1.exe",
-  "message": "🎉 Test Update!\n\n✨ What's New:\n• Testing update system\n• Bug fixes\n• New features\n\nThis is a test update notification."
+  "enabled": false,
+  "version": "1.0",
+  "download_url": "https://watchdog.parhampanah.com/download",
+  "message": "New features available!",
+  "force_update": false
 }
