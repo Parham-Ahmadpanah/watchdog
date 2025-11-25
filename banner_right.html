@@ -7,40 +7,47 @@ body {
     margin: 0; 
     padding: 0; 
     background: #1e1e1e;
-    overflow: hidden;
 }
-#ad-container {
+
+/* Right-side vertical ad stack */
+#ad-right {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* keeps them aligned to left naturally */
+    align-items: flex-end;
     gap: 10px; /* space between ads */
-    padding: 10px; /* optional, some spacing from top/left */
+    z-index: 9999;
 }
 </style>
 </head>
 <body>
 
-<div id="ad-container">
-  <!-- First Ad -->
-  <script>
+<div id="ad-right">
+
+    <!-- First Ad -->
+    <script>
     (function(s){
         s.dataset.zone='10182853';
         s.src='https://nap5k.com/tag.min.js';
-        document.getElementById('ad-container').appendChild(s);
+        document.getElementById('ad-right').appendChild(s);
     })(document.createElement('script'));
-  </script>
+    </script>
 
-  <!-- Second Ad -->
-  <script type="text/javascript">
-    atOptions = {
-      'key' : 'c1241f58c3c915d9b85a16390f10e127',
-      'format' : 'iframe',
-      'height' : 250,
-      'width' : 300,
-      'params' : {}
-    };
-  </script>
-  <script type="text/javascript" src="//www.highperformanceformat.com/c1241f58c3c915d9b85a16390f10e127/invoke.js"></script>
+    <!-- Second Ad -->
+    <script type="text/javascript">
+        atOptions = {
+            'key' : 'c1241f58c3c915d9b85a16390f10e127',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+        };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/c1241f58c3c915d9b85a16390f10e127/invoke.js"></script>
+
 </div>
 
 </body>
