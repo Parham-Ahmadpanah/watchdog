@@ -9,27 +9,24 @@ body {
     background: #1e1e1e;
     overflow: hidden;
 }
-#ad-left-container {
-    position: fixed;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+#ad-container {
     display: flex;
     flex-direction: column;
+    align-items: flex-start; /* keeps them aligned to left naturally */
     gap: 10px; /* space between ads */
-    z-index: 9999;
+    padding: 10px; /* optional, some spacing from top/left */
 }
 </style>
 </head>
 <body>
-<!-- Left Vignette Banner -->
-<div id="ad-left-container">
+
+<div id="ad-container">
   <!-- First Ad -->
   <script>
     (function(s){
         s.dataset.zone='10182853';
         s.src='https://nap5k.com/tag.min.js';
-        document.getElementById('ad-left-container').appendChild(s);
+        document.getElementById('ad-container').appendChild(s);
     })(document.createElement('script'));
   </script>
 
@@ -45,5 +42,6 @@ body {
   </script>
   <script type="text/javascript" src="//www.highperformanceformat.com/c1241f58c3c915d9b85a16390f10e127/invoke.js"></script>
 </div>
+
 </body>
 </html>
