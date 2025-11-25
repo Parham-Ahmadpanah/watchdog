@@ -9,9 +9,25 @@ body {
     background: #1e1e1e;
     overflow: hidden;
 }
+#ad-left {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 9999;
+}
 </style>
 </head>
 <body>
-<!-- Right Vignette Banner -->
-<script>(function(s){s.dataset.zone='10182853',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script></body>
+<!-- Left Vignette Banner -->
+<div id="ad-left">
+  <script>
+    (function(s){
+      s.dataset.zone='10182853';
+      s.src='https://nap5k.com/tag.min.js';
+    })(document.createElement('script'));
+    document.getElementById('ad-left').appendChild(document.currentScript);
+  </script>
+</div>
+</body>
 </html>
