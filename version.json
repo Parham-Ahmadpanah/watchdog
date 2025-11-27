@@ -1,6 +1,6 @@
 {
-  "version": "1.10",
-  "enabled": true,
+  "version": "1.0",
+  "enabled": false,
   "download_url": "https://watchdog.parhampanah.com/download",
   "message": "New version available with bug fixes and improvements!",
   "force_update": false,
