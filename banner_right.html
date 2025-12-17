@@ -1,173 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>(function(s){s.dataset.zone='10182853',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Use - Watchdog Protection</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html, body {
-            height: 100%;
-            width: 100%;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #1e1e1e;
-            color: #D6D6D6;
-            /* REMOVED: width: 300px; height: 500px; */
-            /* NOW: Takes 100% of WebView2 container size! */
-            overflow: hidden;
-        }
-        
-        .container {
-            width: 100%;
-            height: 100%;
-            padding: 15px;
-            overflow-y: auto;
-        }
-        
-        .container::-webkit-scrollbar {
-            width: 5px;
-        }
-        
-        .container::-webkit-scrollbar-track {
-            background: #252525;
-        }
-        
-        .container::-webkit-scrollbar-thumb {
-            background: #00CC6A;
-            border-radius: 3px;
-        }
-        
-        h1 {
-            color: #00CC6A;
-            font-size: 18px;
-            margin-bottom: 4px;
-            text-align: center;
-        }
-        
-        .subtitle {
-            color: #888;
-            font-size: 11px;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .step {
-            background: #252525;
-            border-left: 2px solid #00CC6A;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 4px;
-        }
-        
-        .step-number {
-            display: inline-block;
-            background: #00CC6A;
-            color: #1e1e1e;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 20px;
-            font-weight: bold;
-            margin-right: 6px;
-            font-size: 11px;
-        }
-        
-        .step-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 4px;
-        }
-        
-        .step-desc {
-            font-size: 11px;
-            line-height: 1.5;
-            color: #bbb;
-        }
-        
-        .tip {
-            background: rgba(255, 106, 0, 0.1);
-            border: 1px solid #FF6A00;
-            border-radius: 4px;
-            padding: 8px;
-            margin-top: 12px;
-            font-size: 10px;
-        }
-        
-        .tip-title {
-            color: #FF6A00;
-            font-weight: bold;
-            margin-bottom: 4px;
-            font-size: 11px;
-        }
-        
-        .tip ul {
-            padding-left: 14px;
-            margin-top: 4px;
-        }
-        
-        .tip li {
-            line-height: 1.6;
-            margin-bottom: 2px;
-        }
-        
-        code {
-            background: #1e1e1e;
-            padding: 1px 4px;
-            border-radius: 2px;
-            color: #00CC6A;
-            font-size: 10px;
-        }
-        
-        strong {
-            color: #fff;
-        }
-    </style>
+<script>(function(s){s.dataset.zone='10182853',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Use - Watchdog Protection</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%}
+body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    background:#1e1e1e;
+    color:#d6d6d6;
+    overflow:hidden;
+}
+.container{
+    width:100%;
+    height:100%;
+    padding:15px;
+    overflow-y:auto;
+}
+.container::-webkit-scrollbar{width:5px}
+.container::-webkit-scrollbar-thumb{background:#00cc6a;border-radius:3px}
+h1{color:#00cc6a;font-size:18px;text-align:center}
+.subtitle{font-size:11px;color:#888;text-align:center;margin-bottom:12px}
+.step{
+    background:#252525;
+    border-left:2px solid #00cc6a;
+    padding:10px;
+    margin-bottom:10px;
+    border-radius:4px;
+}
+.step-number{
+    background:#00cc6a;
+    color:#1e1e1e;
+    width:20px;height:20px;
+    border-radius:50%;
+    display:inline-block;
+    text-align:center;
+    line-height:20px;
+    font-size:11px;
+    font-weight:bold;
+    margin-right:6px;
+}
+.step-title{font-size:13px;font-weight:600;color:#fff}
+.step-desc{font-size:11px;color:#bbb;margin-top:3px;line-height:1.5}
+select{
+    width:100%;
+    background:#252525;
+    color:#fff;
+    border:1px solid #00cc6a;
+    padding:6px;
+    margin-bottom:12px;
+    border-radius:4px;
+}
+code{color:#00cc6a;font-size:10px}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>🛡️ How to Use</h1>
-        <p class="subtitle">Protect your laptop in 3 steps</p>
-        
-        <div class="step">
-            <div class="step-title">
-                <span class="step-number">1</span>
-                Plug In
-            </div>
-            <div class="step-desc">
-                Connect your laptop to AC power. The app only works when plugged in.
-            </div>
-        </div>
-        
-        <div class="step">
-            <div class="step-title">
-                <span class="step-number">2</span>
-                Toggle Protection ON
-            </div>
-            <div class="step-desc">
-                Flip the switch to <strong>ON</strong>. You'll see "Protection ON 🛡️" when active.
-            </div>
-        </div>
-        
-        <div class="step">
-            <div class="step-title">
-                <span class="step-number">3</span>
-                Setup Telegram
-            </div>
-            <div class="step-desc">
-                Click <code>Setup Telegram</code>, scan QR code, and send the command to <strong>@watchdog_protection_bot</strong>.
-            </div>
-        </div>    
-    </div>
+<div class="container">
+
+<select onchange="setLang(this.value)">
+    <option value="en">English</option>
+    <option value="ar">العربية</option>
+    <option value="zh">中文</option>
+    <option value="it">Italiano</option>
+    <option value="ru">Русский</option>
+    <option value="fa">فارسی</option>
+    <option value="es">Español</option>
+    <option value="de">Deutsch</option>
+    <option value="fr">Français</option>
+    <option value="ko">한국어</option>
+    <option value="ja">日本語</option>
+</select>
+
+<h1 id="title"></h1>
+<p id="subtitle" class="subtitle"></p>
+
+<div class="step">
+    <div class="step-title"><span class="step-number">1</span><span id="s1t"></span></div>
+    <div class="step-desc" id="s1d"></div>
+</div>
+
+<div class="step">
+    <div class="step-title"><span class="step-number">2</span><span id="s2t"></span></div>
+    <div class="step-desc" id="s2d"></div>
+</div>
+
+<div class="step">
+    <div class="step-title"><span class="step-number">3</span><span id="s3t"></span></div>
+    <div class="step-desc" id="s3d"></div>
+</div>
+
+</div>
+
+<script>
+const data={
+en:{
+t:"🛡️ How to Use",st:"Protect your laptop in 3 steps",
+s1t:"Plug In",s1d:"Connect your laptop to AC power. App works only when plugged in.",
+s2t:"Toggle Protection ON",s2d:"Switch to ON. You'll see Protection ON 🛡️.",
+s3t:"Setup Telegram",s3d:"Click Setup Telegram, scan QR, send command to @watchdog_protection_bot."
+},
+ar:{
+t:"🛡️ طريقة الاستخدام",st:"احمِ جهازك في 3 خطوات",
+s1t:"توصيل الطاقة",s1d:"قم بتوصيل اللابتوب بالكهرباء.",
+s2t:"تشغيل الحماية",s2d:"فعّل الزر لرؤية حالة الحماية.",
+s3t:"إعداد تيليجرام",s3d:"امسح رمز QR وأرسل الأمر للبوت."
+},
+zh:{
+t:"🛡️ 使用方法",st:"三步保护电脑",
+s1t:"连接电源",s1d:"仅在插电时工作。",
+s2t:"开启保护",s2d:"打开开关即可激活。",
+s3t:"设置Telegram",s3d:"扫描二维码发送指令。"
+},
+it:{
+t:"🛡️ Come Usare",st:"Protezione in 3 passaggi",
+s1t:"Collega Alimentazione",s1d:"Funziona solo collegato.",
+s2t:"Attiva Protezione",s2d:"Imposta su ON.",
+s3t:"Configura Telegram",s3d:"Scansiona QR e invia comando."
+},
+ru:{
+t:"🛡️ Как Использовать",st:"Защита за 3 шага",
+s1t:"Подключите питание",s1d:"Работает только при подключении.",
+s2t:"Включите защиту",s2d:"Переключите в ON.",
+s3t:"Настройка Telegram",s3d:"Отсканируйте QR."
+},
+fa:{
+t:"🛡️ راهنمای استفاده",st:"محافظت در ۳ مرحله",
+s1t:"اتصال برق",s1d:"فقط هنگام اتصال برق فعال است.",
+s2t:"فعال‌سازی محافظت",s2d:"دکمه را روشن کنید.",
+s3t:"تنظیم تلگرام",s3d:"QR را اسکن و دستور ارسال کنید."
+},
+es:{
+t:"🛡️ Cómo Usar",st:"Protección en 3 pasos",
+s1t:"Conectar energía",s1d:"Solo funciona conectado.",
+s2t:"Activar protección",s2d:"Cambiar a ON.",
+s3t:"Configurar Telegram",s3d:"Escanea QR."
+},
+de:{
+t:"🛡️ Anleitung",st:"Schutz in 3 Schritten",
+s1t:"Netzteil anschließen",s1d:"Nur eingesteckt nutzbar.",
+s2t:"Schutz aktivieren",s2d:"Schalter auf ON.",
+s3t:"Telegram einrichten",s3d:"QR-Code scannen."
+},
+fr:{
+t:"🛡️ Mode d'emploi",st:"Protection en 3 étapes",
+s1t:"Brancher",s1d:"Fonctionne uniquement branché.",
+s2t:"Activer protection",s2d:"Basculer sur ON.",
+s3t:"Configurer Telegram",s3d:"Scanner le QR."
+},
+ko:{
+t:"🛡️ 사용 방법",st:"3단계 보호",
+s1t:"전원 연결",s1d:"전원 연결 시만 동작.",
+s2t:"보호 활성화",s2d:"ON으로 전환.",
+s3t:"텔레그램 설정",s3d:"QR 스캔."
+},
+ja:{
+t:"🛡️ 使い方",st:"3ステップで保護",
+s1t:"電源接続",s1d:"接続時のみ動作。",
+s2t:"保護ON",s2d:"ONに切替。",
+s3t:"Telegram設定",s3d:"QRをスキャン。"
+}
+};
+
+function setLang(l){
+document.documentElement.lang=l;
+document.body.dir=(l==="ar"||l==="fa")?"rtl":"ltr";
+const d=data[l];
+title.innerText=d.t;
+subtitle.innerText=d.st;
+s1t.innerText=d.s1t; s1d.innerText=d.s1d;
+s2t.innerText=d.s2t; s2d.innerText=d.s2d;
+s3t.innerText=d.s3t; s3d.innerText=d.s3d;
+}
+setLang("en");
+</script>
 </body>
 </html>
