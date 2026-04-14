@@ -1,9 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- <script>(function(s){s.dataset.zone='10182853',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script> -->
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How to Use - Watchdog Protection</title>
@@ -17,9 +14,23 @@ body{
     color:#d6d6d6;
     overflow:hidden;
 }
-.container{width:100%;height:100%;padding:15px;overflow-y:auto}
-h1{color:#00cc6a;font-size:18px;text-align:center}
-.subtitle{font-size:11px;color:#888;text-align:center;margin-bottom:12px}
+.container{
+    width:100%;
+    height:100%;
+    padding:15px;
+    overflow-y:auto
+}
+h1{
+    color:#00cc6a;
+    font-size:18px;
+    text-align:center
+}
+.subtitle{
+    font-size:11px;
+    color:#888;
+    text-align:center;
+    margin-bottom:12px
+}
 .step{
     background:#252525;
     border-left:2px solid #00cc6a;
@@ -28,23 +39,152 @@ h1{color:#00cc6a;font-size:18px;text-align:center}
     border-radius:4px;
 }
 .step-number{
-    background:#00cc6a;color:#1e1e1e;
-    width:20px;height:20px;border-radius:50%;
-    display:inline-block;text-align:center;
-    line-height:20px;font-size:11px;font-weight:bold;margin-right:6px
+    background:#00cc6a;
+    color:#1e1e1e;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    display:inline-block;
+    text-align:center;
+    line-height:20px;
+    font-size:11px;
+    font-weight:bold;
+    margin-right:6px
 }
-.step-title{font-size:13px;font-weight:600;color:#fff}
-.step-desc{font-size:11px;color:#bbb;margin-top:3px;line-height:1.5}
+.step-title{
+    font-size:13px;
+    font-weight:600;
+    color:#fff
+}
+.step-desc{
+    font-size:11px;
+    color:#bbb;
+    margin-top:3px;
+    line-height:1.5
+}
 select{
-    width:100%;background:#252525;color:#fff;
-    border:1px solid #00cc6a;padding:6px;margin-bottom:12px;
+    width:100%;
+    background:#252525;
+    color:#fff;
+    border:1px solid #00cc6a;
+    padding:6px;
+    margin-bottom:12px;
     border-radius:4px
 }
-code{color:#00cc6a;font-size:10px}
+code{
+    color:#00cc6a;
+    font-size:10px
+}
+
+/* Popup Ad */
+.popup-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.75);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    padding:20px;
+}
+.popup{
+    width:100%;
+    max-width:420px;
+    background:#252525;
+    border:1px solid #00cc6a;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.45);
+    padding:20px;
+    text-align:center;
+    position:relative;
+    animation:popupFade .25s ease;
+}
+@keyframes popupFade{
+    from{opacity:0;transform:scale(.95)}
+    to{opacity:1;transform:scale(1)}
+}
+.popup-close{
+    position:absolute;
+    top:10px;
+    right:12px;
+    background:none;
+    border:none;
+    color:#bbb;
+    font-size:22px;
+    cursor:pointer;
+    line-height:1;
+}
+.popup-close:hover{
+    color:#fff;
+}
+.popup-badge{
+    display:inline-block;
+    background:#00cc6a;
+    color:#111;
+    font-size:11px;
+    font-weight:700;
+    padding:5px 10px;
+    border-radius:999px;
+    margin-bottom:12px;
+}
+.popup h2{
+    color:#fff;
+    font-size:20px;
+    margin-bottom:10px;
+}
+.popup p{
+    color:#d6d6d6;
+    font-size:14px;
+    line-height:1.6;
+    margin-bottom:18px;
+}
+.popup a.cta-btn{
+    display:inline-block;
+    background:#00cc6a;
+    color:#111;
+    text-decoration:none;
+    font-weight:700;
+    padding:12px 18px;
+    border-radius:8px;
+    transition:.2s ease;
+}
+.popup a.cta-btn:hover{
+    transform:translateY(-1px);
+    opacity:.95;
+}
+.popup-small{
+    margin-top:10px;
+    font-size:11px;
+    color:#888;
+    word-break:break-all;
+}
+.hidden{
+    display:none !important;
+}
 </style>
 </head>
 
 <body>
+
+<!-- Popup Ad -->
+<div class="popup-overlay" id="popupAd">
+    <div class="popup">
+        <button class="popup-close" onclick="closePopup()" aria-label="Close">&times;</button>
+        <div class="popup-badge">Special Offer</div>
+        <h2>Get €5 with Satispay</h2>
+        <p>
+            Don't have Satispay yet?<br>
+            Download the app by clicking the link below and get <strong>€5</strong>. Start now.
+        </p>
+        <a class="cta-btn" href="https://web.satispay.com/promocode/e81aa7bb-1b55-42d2-8538-261357980afb" target="_blank" rel="noopener noreferrer">
+            Download the App
+        </a>
+        <div class="popup-small">
+            https://web.satispay.com/promocode/e81aa7bb-1b55-42d2-8538-261357980afb
+        </div>
+    </div>
+</div>
+
 <div class="container">
 
 <select onchange="setLang(this.value)">
@@ -65,18 +205,18 @@ code{color:#00cc6a;font-size:10px}
 <p id="subtitle" class="subtitle"></p>
 
 <div class="step">
-<div class="step-title"><span class="step-number">1</span><span id="s1t"></span></div>
-<div class="step-desc" id="s1d"></div>
+    <div class="step-title"><span class="step-number">1</span><span id="s1t"></span></div>
+    <div class="step-desc" id="s1d"></div>
 </div>
 
 <div class="step">
-<div class="step-title"><span class="step-number">2</span><span id="s2t"></span></div>
-<div class="step-desc" id="s2d"></div>
+    <div class="step-title"><span class="step-number">2</span><span id="s2t"></span></div>
+    <div class="step-desc" id="s2d"></div>
 </div>
 
 <div class="step">
-<div class="step-title"><span class="step-number">3</span><span id="s3t"></span></div>
-<div class="step-desc" id="s3d"></div>
+    <div class="step-title"><span class="step-number">3</span><span id="s3t"></span></div>
+    <div class="step-desc" id="s3d"></div>
 </div>
 
 </div>
@@ -131,7 +271,7 @@ s1d:"Подключите ноутбук к электросети. Прилож
 s2t:"Включите защиту",
 s2d:"Переключите в положение ON. Вы увидите: Protection ON 🛡️.",
 s3t:"Настройка Telegram",
-s3d:"Нажмите Setup Telegram, отсканируйте QR‑код и отправьте код регистрации боту @watchdog_protection_bot."
+s3d:"Нажмите Setup Telegram, отсканируйте QR-код и отправьте код регистрации боту @watchdog_protection_bot."
 },
 fa:{
 t:"🛡️ نحوه استفاده",
@@ -161,7 +301,7 @@ s1d:"Verbinde den Laptop mit dem Stromnetz. Die App funktioniert nur im angeschl
 s2t:"Schutz aktivieren",
 s2d:"Schalter auf ON stellen. Du siehst: Protection ON 🛡️.",
 s3t:"Telegram einrichten",
-s3d:"Klicken Sie auf Setup Telegram, scannen Sie den QR‑Code und senden Sie den Registrierungscode an @watchdog_protection_bot."
+s3d:"Klicken Sie auf Setup Telegram, scannen Sie den QR-Code und senden Sie den Registrierungscode an @watchdog_protection_bot."
 },
 fr:{
 t:"🛡️ Mode d’emploi",
@@ -196,18 +336,22 @@ s3d:"Setup Telegram をクリックし、QRコードをスキャンして登録�
 };
 
 function setLang(l){
-document.documentElement.lang=l;
-document.body.dir=(l==="ar"||l==="fa")?"rtl":"ltr";
-const d=data[l];
-title.innerText=d.t;
-subtitle.innerText=d.st;
-s1t.innerText=d.s1t; s1d.innerText=d.s1d;
-s2t.innerText=d.s2t; s2d.innerText=d.s2d;
-s3t.innerText=d.s3t; s3d.innerText=d.s3d;
+    document.documentElement.lang=l;
+    document.body.dir=(l==="ar"||l==="fa")?"rtl":"ltr";
+    const d=data[l];
+    title.innerText=d.t;
+    subtitle.innerText=d.st;
+    s1t.innerText=d.s1t; s1d.innerText=d.s1d;
+    s2t.innerText=d.s2t; s2d.innerText=d.s2d;
+    s3t.innerText=d.s3t; s3d.innerText=d.s3d;
 }
+
+function closePopup(){
+    document.getElementById("popupAd").classList.add("hidden");
+}
+
 setLang("en");
 </script>
 
 </body>
 </html>
-
